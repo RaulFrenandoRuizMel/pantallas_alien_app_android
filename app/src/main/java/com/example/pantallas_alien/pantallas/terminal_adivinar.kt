@@ -2,15 +2,7 @@ package com.example.pantallas_alien.pantallas
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxHeight
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -25,43 +17,36 @@ import com.example.pantallas_alien.moleculas.pantalla_verde.Header
 fun SistemaTiming() {
     Column(
         modifier = Modifier
-            .fillMaxSize()
-            .background(Color(0xFF00b4d8))
+            .background(Color(0xFF0A0D26)) // Fondo oscuro (#0A0D26)
             .padding(16.dp)
+            .widthIn(max = 800.dp)
+            .heightIn(max = 800.dp)
     ) {
-        // Header
+        // Header con colores personalizados
         Header(
             text = "                    CONTROL DE SISTEMAS",
-            backgroundColor = Color(0xFF00b4d8),
-            textColor = Color.White
+            backgroundColor = Color(0xFFE3074A), // Margen rojo intenso (#E3074A)
+            textColor = Color(0xFFFCD079)          // Texto amarillo claro (#FCD079)
         )
 
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .background(Color(0xFF))
+                .background(Color.Transparent)
                 .padding(16.dp)
-                .border(width = 4.dp, color = Color.White)
-        ){
+                .border(width = 4.dp, color = Color(0xFFE3074A)) // Borde rojo intenso (#E3074A)
+        ) {
             Hackeo("ESTABLISHING CONNECTION", 0.6f)
             Hackeo("UPLOADING DATA", 0.3f)
             Hackeo("FINALIZING", 0.1f)
         }
-        Spacer(modifier = Modifier.height(16.dp))
 
-        Spacer(modifier = Modifier.height(8.dp))
-
-
+        Spacer(modifier = Modifier.height(24.dp))
     }
-
-}
-
-fun column() {
 }
 
 @Preview(
     showBackground = true,
-    backgroundColor = 0xFF00b4d8,
     widthDp = 800,
     heightDp = 800
 )
@@ -69,4 +54,3 @@ fun column() {
 fun PreviewTiming() {
     SistemaTiming()
 }
-

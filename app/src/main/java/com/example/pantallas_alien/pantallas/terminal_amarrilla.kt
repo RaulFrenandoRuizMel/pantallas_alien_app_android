@@ -1,15 +1,7 @@
 package com.example.pantallas_alien.pantallas
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxHeight
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -23,32 +15,30 @@ import com.example.pantallas_alien.moleculas.pantalla_verde.Header
 fun SystemControlScreen() {
     Column(
         modifier = Modifier
-            .fillMaxSize()
-            .background(Color.Black)
+            .background(Color(0xFF0A0D26))  // Fondo general
             .padding(16.dp)
+            .widthIn(max = 800.dp)
+            .heightIn(max = 800.dp)
     ) {
-        // Header
+        // Header con colores personalizados
         Header(
-        text = "            CTRL COMUNICACIONES",
-            backgroundColor = Color.Black, // Fondo amarillo
-            textColor = Color.Yellow         // Texto negro
+            text = "            CTRL COMUNICACIONES",
+            backgroundColor = Color(0xFFE3074A), // Margen destacado
+            textColor = Color(0xFFFCD079)        // Texto color
         )
 
         Spacer(modifier = Modifier.height(16.dp))
-
         Spacer(modifier = Modifier.height(8.dp))
 
         Row(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(top = 8.dp)
-
         ) {
             Column(
                 modifier = Modifier
                     .width(350.dp)
-                    .fillMaxHeight(.5f)
-
+                    .fillMaxHeight(0.5f)
             ) {
                 SistemasActivar(
                     title = "SEÑAL DE LA CÁMARA",
@@ -56,9 +46,7 @@ fun SystemControlScreen() {
                     status = "INACTIVO",
                     modifier = Modifier.fillMaxWidth()
                 )
-
                 Spacer(modifier = Modifier.height(8.dp))
-
                 SistemasActivar(
                     title = "PURIFICACIÓN DEL AIRE",
                     value = 3,
@@ -66,16 +54,13 @@ fun SystemControlScreen() {
                     modifier = Modifier.fillMaxWidth()
                 )
             }
-            Spacer(modifier = Modifier.height(24.dp))
 
-            Spacer(modifier = Modifier.height(8.dp))
             Spacer(modifier = Modifier.width(50.dp))
 
             Column(
                 modifier = Modifier
                     .width(350.dp)
-                    .fillMaxHeight(.5f)
-
+                    .fillMaxHeight(0.5f)
             ) {
                 SistemasActivar(
                     title = "SISTEMA DE ACCESO",
@@ -83,9 +68,7 @@ fun SystemControlScreen() {
                     status = "ACTIVO",
                     modifier = Modifier.fillMaxWidth()
                 )
-
                 Spacer(modifier = Modifier.height(8.dp))
-
                 SistemasActivar(
                     title = "MONITOREO LOCAL",
                     value = 4,
@@ -94,24 +77,21 @@ fun SystemControlScreen() {
                 )
             }
         }
+
         PotenciaYRed(
             leftLabel = "POTENCIA DISPONIBLE",
             leftValue = "4",
             rightLabel = "USO DE LA RED",
             rightValue = "2/6",
-            modifier = Modifier.fillMaxWidth()
+            modifier = Modifier
+                .fillMaxWidth()
+                .background(Color(0xFF945406))  // Aplico fondo al contenedor
         )
     }
-
-}
-
-fun column(function: () -> Unit) {
-
 }
 
 @Preview(
     showBackground = true,
-    backgroundColor = 0xFF001A00,
     widthDp = 800,
     heightDp = 800
 )
@@ -119,4 +99,3 @@ fun column(function: () -> Unit) {
 fun PreviewSystemControlScreen() {
     SystemControlScreen()
 }
-
